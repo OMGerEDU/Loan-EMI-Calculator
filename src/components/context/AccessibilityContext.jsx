@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { AccessibilitySettings } from "@/api/entities";
-import { User } from "@/api/entities";
+
 
 // Create accessibility context
 const AccessibilityContext = createContext();
@@ -20,10 +19,6 @@ export function AccessibilityProvider({ children }) {
   useEffect(() => {
     const loadSettings = async () => {
       try {
-        const user = await User.me();
-        if (user.accessibilitySettings) {
-          setSettings(user.accessibilitySettings);
-        }
       } catch (error) {
         // User not logged in or no settings saved
         const savedSettings = localStorage.getItem("accessibilitySettings");
@@ -40,13 +35,7 @@ export function AccessibilityProvider({ children }) {
   const saveSettings = async (newSettings) => {
     setSettings(newSettings);
     localStorage.setItem("accessibilitySettings", JSON.stringify(newSettings));
-    
-    try {
-      const user = await User.me();
-      await User.updateMyUserData({ accessibilitySettings: newSettings });
-    } catch (error) {
-      // User not logged in, just save to localStorage
-    }
+
   };
 
   // Toggle a specific setting
