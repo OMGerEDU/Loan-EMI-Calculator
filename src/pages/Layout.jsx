@@ -1,12 +1,12 @@
 
 
 import React, { useEffect } from "react";
-import { LanguageProvider } from "./components/context/LanguageContext";
-import { AccessibilityProvider, useAccessibility } from "./components/context/AccessibilityContext";
-import Navbar from "./components/layout/Navbar";
-import AccessibilityMenu from "./components/layout/AccessibilityMenu";
-import Footer from "./components/layout/Footer";
-import CookieConsent from "./components/layout/CookieConsent";
+import { LanguageProvider } from "../components/context/LanguageContext";
+import { AccessibilityProvider, useAccessibility } from "../components/context/AccessibilityContext";
+import Navbar from "../components/layout/Navbar";
+import AccessibilityMenu from "../components/layout/AccessibilityMenu";
+import Footer from "../components/layout/Footer";
+import CookieConsent from "../components/layout/CookieConsent";
 
 // Wrapper to apply accessibility settings
 function AccessibilityWrapper({ children }) {
